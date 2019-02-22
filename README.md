@@ -2,20 +2,19 @@
 
 
 ## Welcome
-Welcome to the Turing Challenge. Here you'll find some examples to reach your goal. 
+Welcome to the Turing Challenge! We've provided some examples to guide you through the project.
 
 ## Root Endpoint 
 [https://backendapi.turing.com/docs](https://backendapi.turing.com/docs)
 
 ## Authentication
-Just some endpoint required Authentication, you can check it in the documentation. 
-The Customer login provide the Token to use in the other endpoints that required it.
+Some endpoints require authentication. For more information, see the documentation. 
 
-Token's example: ```Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6MTIsIm5hbWUiOiJFZGVyIFRhdmVpcmEiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE1NTA3ODYyMjAsImV4cCI6MTU1MDg3MjYyMH0.QEGdry367EQNxBqzuUDCGJscWkq8YQwJdGBgV3hztR0```
+Token Example: ```Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6MTIsIm5hbWUiOiJFZGVyIFRhdmVpcmEiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE1NTA3ODYyMjAsImV4cCI6MTU1MDg3MjYyMH0.QEGdry367EQNxBqzuUDCGJscWkq8YQwJdGBgV3hztR0```
  
-The Token need to be in the header param **"user-key"**. Let's see an example below.
+The token must be in the header param **user-key**. See example below.
 
-Example Using login Authentication (jQuery):
+Login Authentication Example (jQuery):
 ```javascript
 $.ajax({ 
          url: "https://backendapi.turing.com/customer/login",
@@ -26,7 +25,7 @@ $.ajax({
 });		
 ```
 
-Response example:
+Response Example:
 ```json
 {
   "user": {
@@ -48,7 +47,7 @@ Response example:
 }
 ```
 
-Example with header and token:
+Header & Token Example:
 ```javascript
 $.ajax({ 
          url: "https://backendapi.turing.com/customer",
@@ -60,12 +59,10 @@ $.ajax({
 ```
 
 ## Pagination
-All params of pagination are not required.
+Pagination Params:
 
-The pagination can to have the query params below:
-
-* **page** - Number of page. Default is "1".
-* **limit** - Number of limit por page. (Check [the documentation](https://backendapi.turing.com/docs) to see what the default for each endpoint).
+* **page** - Number of pages (Default is 1).
+* **limit** - Limit for pages (Visit [the documentation](https://backendapi.turing.com/docs) for more information).
 
 Examples: 
 
@@ -73,9 +70,9 @@ Examples:
 * https://backendapi.turing.com/products?page=1
 * https://backendapi.turing.com/products?limit=30
 
-Some endpoints (shoppingcart and products) have a  no required param **"description_length"**.
+Note: Some endpoints such as shoppingcart and products do not require the param **description_length**.
 
-Return of list with pagination:
+Output Format:
 ```json
 {
   "count": 40,
@@ -92,29 +89,25 @@ Return of list with pagination:
 
 ## Order
 
-To sort some lists use the no required param **"order"**.
+To sort a list, use the param **order**.
 
-The format of param is as this REGEX: '/^([^\s]+),(DESC|ASC)$/'
+Param in REGEX is as follows: '/^([^\s]+),(DESC|ASC)$/'
 
 Example: 
 
 * https://backendapi.turing.com/categories?order=name|DESC
  
-## Stripe Itegration
 
-Do as the example in this [link](https://stripe.com/docs/stripe-js/elements/quickstart) using this stripe public key **pk_test_NcwpaplBCuTL6I0THD44heRe**
-
-After that use the TOKEN created in the endpoint **"https://backendapi.turing.com/stripe/charge"**. 
 
 ## Errors
 
-The error response has the following structure:
+Some error responses:
 
 * **code** - Error's Code.
 * **message** - Error's Message.
 * **field** - Error's Field.
 
-Example of Error:
+Error Example:
 ```json
 {"error":{"status":400,"code":"USR_05","message":"The email don't exists.","field":"email"}}
 ```
